@@ -12,3 +12,5 @@ vim.opt.undofile = true -- Sets persistent undo
 
 vim.opt.scrolloff = 8 -- Always would be at least n characters in the bottom/ at the top of screen unless the end of the file
 vim.opt.signcolumn = "yes" -- Always show columns for sign at the left part of the window
+
+vim.opt.report = 1000
