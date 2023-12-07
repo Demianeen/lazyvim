@@ -10,5 +10,13 @@ return {
 				end,
 			},
 		},
+		filesystem = {
+			window = {
+				mappings = {
+					["n"] = "add",
+					["N"] = "add_directory",
+				},
+			},
+		},
 	},
 }
