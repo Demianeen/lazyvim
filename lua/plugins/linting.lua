@@ -16,7 +16,6 @@ return {
 			-- Event to trigger linters
 			events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 			linters_by_ft = {
-
 				-- fish = { "fish" },
 				-- Use the "*" filetype to run linters on all filetypes.
 				markdown = { "proselint", "write_good", "alex" },
