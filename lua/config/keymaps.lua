@@ -58,7 +58,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- turns off highlight
-vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>")
+vim.keymap.set("n", "<Esc><Esc>", ":noh<CR>", { silent = true })
 
 -- Open new line on ctrl enter in insert mode
 vim.keymap.set("i", "<C-CR>", "<Esc>o")
