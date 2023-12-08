@@ -1,6 +1,6 @@
 local getcwd = function()
 	local file = vim.fn.expand("%:p")
-	-- to run inside a package root if
+	-- to run inside a package root if exist
 	if string.find(file, "/packages/") then
 		return string.match(file, "(.-/[^/]+/)src")
 	end
@@ -40,14 +40,15 @@ return {
 				-- 	return "npm test --"
 				-- end,
 				jestConfigFile = function()
-					local package_json_path = vim.fn.getcwd() .. "/package.json"
+					local cwd = vim.fn.getcwd()
+					local package_json_path = cwd .. "/package.json"
 					local package_json_content =
 						vim.fn.readfile(package_json_path)
 
 					-- Check if the file read is successful
 					if next(package_json_content) == nil then
 						print("package.json is empty or does not exist")
-						return nil
+						return cwd .. "jest.config.ts"
 					end
 
 					package_json_content =
@@ -68,11 +69,13 @@ return {
 						local config_path =
 							test_script:match(config_arg_pattern)
 
-						return config_path
-					else
-						print("No test script found in package.json")
-						return nil
+						if config_path then
+							return config_path
+						end
 					end
+
+					print("No test script/config path found in package.json")
+					return cwd .. "jest.config.ts"
 				end,
 				env = { CI = true },
 				cwd = getcwd,
