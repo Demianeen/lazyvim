@@ -120,4 +120,9 @@ vim.keymap.set(
 	{ silent = true, desc = "makes file NOT executable" }
 )
 
-vim.keymap.set("n", "<leader>sP", ":!t<CR>", { desc = "Projects" })
+vim.keymap.set(
+	"n",
+	"<leader>sP",
+	":!t<CR>",
+	{ desc = "Projects", silent = true }
+)
