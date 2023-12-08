@@ -1,9 +1,9 @@
 return {
-  "tpope/vim-surround",
-  keys = {
-    "S",
-    "cs",
-    "ys",
-    "ds",
-  },
+	"tpope/vim-surround",
+	keys = {
+		{ "S", mode = { "v" } },
+		"cs",
+		"ys",
+		"ds",
+	},
 }
