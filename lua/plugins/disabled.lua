@@ -1,4 +1,6 @@
 return {
-	"echasnovski/mini.surround",
-	enabled = false,
+  {
+    'akinsho/bufferline.nvim',
+    enabled = false,
+  },
 }

@@ -32,6 +32,8 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.lang.yaml' },
     -- docker
     { import = 'lazyvim.plugins.extras.lang.docker' },
+    -- lua
+    { import = 'lazyvim.plugins.extras.dap.nlua' },
 
     -- custom plugins location
     { import = 'plugins' },
