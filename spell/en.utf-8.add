@@ -1,0 +1,16 @@
+#zf
+#zf
+fzf
+nonnegative
+keymaps
+keymap
+noremap
+desc
+Esc
+ctrl
+lazyvim
+json
+yaml
+lua
+LazyVim
+Neovim
