@@ -18,3 +18,5 @@ vim.opt.signcolumn = 'yes' -- Always show columns for sign at the left part of t
 vim.opt.report = 1000
 
 vim.opt.spell = true -- enables spelling
+
+-- vim.opt.hint.paramType = true -- enables inline parameter hints
