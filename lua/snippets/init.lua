@@ -1,2 +1,2 @@
-require("snippets.lua")
-require("snippets.typescript")
+require('snippets.lua')
+require('snippets.typescript')

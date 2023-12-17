@@ -9,25 +9,27 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require('lazy').setup({
   spec = {
-    -- add LazyVim and import its plugins
-    { 'LazyVim/LazyVim',                                    import = 'lazyvim.plugins' },
-    -- import any extras modules here
+    -- lazyvim default plugins
+    {
+      'LazyVim/LazyVim',
+      import = 'lazyvim.plugins',
+    },
+    -- core
     { import = 'lazyvim.plugins.extras.ui.alpha' },
     { import = 'lazyvim.plugins.extras.test.core' },
     { import = 'lazyvim.plugins.extras.dap.core' },
     -- typescript
-    { import = 'lazyvim.plugins.extras.lang.typescript' },
     { import = 'lazyvim.plugins.extras.linting.eslint' },
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
     -- json
     { import = 'lazyvim.plugins.extras.lang.json' },
     -- markdown
-    { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = 'lazyvim.plugins.extras.lang.markdown' },
     -- python
     { import = 'lazyvim.plugins.extras.lang.python' },
     { import = 'lazyvim.plugins.extras.formatting.black' },
     -- yaml
-    { import = "lazyvim.plugins.extras.lang.yaml" },
+    { import = 'lazyvim.plugins.extras.lang.yaml' },
     -- docker
     { import = 'lazyvim.plugins.extras.lang.docker' },
     -- lua
@@ -38,6 +40,8 @@ require('lazy').setup({
     { import = 'plugins.neotest' },
     { import = 'plugins.lsp' },
     { import = 'plugins.dap' },
+    -- languages
+    { import = 'plugins.typescript' },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
