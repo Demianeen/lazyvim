@@ -2,7 +2,7 @@ local ls = require('luasnip')
 local extras = require('luasnip.extras')
 local fmt = require('luasnip.extras.fmt').fmt
 
-local get_reg = require('lib.get_reg')
+local get_reg = require('snippets.lib.get_reg')
 
 vim.keymap.set({ 'i', 's' }, '<C-k>', function()
   if ls.expand_or_jumpable() then ls.expand_or_jump() end

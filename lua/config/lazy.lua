@@ -18,6 +18,7 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.ui.alpha' },
     { import = 'lazyvim.plugins.extras.test.core' },
     { import = 'lazyvim.plugins.extras.dap.core' },
+    { import = 'lazyvim.plugins.extras.coding.yanky' },
     -- typescript
     { import = 'lazyvim.plugins.extras.linting.eslint' },
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
@@ -37,9 +38,7 @@ require('lazy').setup({
 
     -- custom plugins location
     { import = 'plugins' },
-    { import = 'plugins.neotest' },
     { import = 'plugins.lsp' },
-    { import = 'plugins.dap' },
     -- languages
     { import = 'plugins.typescript' },
   },

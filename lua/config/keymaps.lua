@@ -20,6 +20,7 @@ vim.keymap.set('v', '<Tab>', '>gv', { noremap = true, silent = true })
 vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 
 -- paste/delete and not copy
+vim.keymap.set('x', '<C-y>', '"+y')
 vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 vim.keymap.set('n', 'x', '"_x')
