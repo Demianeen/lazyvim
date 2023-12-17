@@ -36,6 +36,7 @@ require('lazy').setup({
     -- custom plugins location
     { import = 'plugins' },
     { import = 'plugins.neotest' },
+    { import = 'plugins.lsp' },
     { import = 'plugins.dap' },
   },
   defaults = {
