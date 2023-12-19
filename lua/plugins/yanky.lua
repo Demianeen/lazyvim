@@ -18,7 +18,7 @@ return {
         require('yanky.textobj').last_put()
       end,
       desc = 'Last put text',
-      mode = { 'n', 'i', 'x', 'o' },
+      mode = { 'o' },
     },
     -- blockwise paste
     {
