@@ -50,6 +50,10 @@ require('lazy').setup({
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
+    keys = {
+      silent = true,
+      noremap = true,
+    },
   },
   install = { colorscheme = { 'tokyonight', 'habamax' } },
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
