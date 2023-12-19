@@ -1,12 +1,15 @@
 return {
-  "nvim-telescope/telescope.nvim",
+  'nvim-telescope/telescope.nvim',
   keys = {
     {
-      "<leader>sp",
+      '<leader>sp',
       function()
-        require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+        require('telescope.builtin').find_files({
+          cwd = require('lazy.core.config').options.root,
+          prompt_title = 'Find in plugins',
+        })
       end,
-      desc = "Find Plugin File",
+      desc = 'Find Plugin File',
     },
   },
   opts = {
@@ -18,10 +21,10 @@ return {
     -- },
   },
   dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
     config = function()
-      require("telescope").load_extension("fzf")
+      require('telescope').load_extension('fzf')
     end,
   },
 }
