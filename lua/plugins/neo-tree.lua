@@ -3,7 +3,7 @@ return {
   opts = {
     event_handlers = {
       {
-        event = 'file_opened',
+        event = 'neo_tree_buffer_leave',
         handler = function(_)
           vim.cmd('Neotree close')
         end,
@@ -14,6 +14,7 @@ return {
         mappings = {
           ['n'] = 'add',
           ['N'] = 'add_directory',
+
           -- fzf content of files in the dir under the cursor
           ['g'] = function(state)
             -- get the current node
