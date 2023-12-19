@@ -8,6 +8,12 @@
 --   require("telescope.builtin").resume,
 --   { noremap = true, silent = true, desc = "Resume" }
 -- )
+local opts = function(desc)
+  return {
+    desc = desc,
+    silent = true,
+    noremap = true,
+  }
 
 vim.g.mapleader = ' '
 -- vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
@@ -120,7 +126,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader>sP',
-  ':!t<CR>',
-  { desc = 'Projects', silent = true }
+  '<leader>fcr',
+  ":call setreg('+', expand('%'))<CR>",
+  opts('Relative file path')
 )

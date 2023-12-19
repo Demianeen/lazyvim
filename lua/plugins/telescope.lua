@@ -11,6 +11,10 @@ return {
       end,
       desc = 'Find Plugin File',
     },
+    {
+      '<leader>fc',
+      false,
+    },
   },
   opts = {
     -- defaults = {
