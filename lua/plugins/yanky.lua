@@ -13,11 +13,11 @@ return {
     { '<leader>p', false },
     -- paste object
     {
-      'aP',
+      'ay',
       function()
         require('yanky.textobj').last_put()
       end,
-      desc = 'Last put text',
+      desc = 'Yanked text',
       mode = { 'o' },
     },
     -- blockwise paste
