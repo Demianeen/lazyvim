@@ -1,9 +1,17 @@
-local opts = function(desc)
-  return {
+local opts = function(desc, additional_opts)
+  local default_opts = {
     desc = desc,
     silent = true,
     noremap = true,
   }
+
+  if additional_opts then
+    for k, v in pairs(additional_opts) do
+      default_opts[k] = v
+    end
+  end
+
+  return default_opts
 end
 
 vim.g.mapleader = ' '
@@ -41,12 +49,12 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts('Move selection down'))
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts('Move selection up'))
 
 -- concats strings but leaves cursor in place
-vim.keymap.set(
-  'n',
-  'J',
-  'J<C-o>',
-  opts('Join lines and restore cursor position')
-)
+-- vim.keymap.set(
+--   'n',
+--   'J',
+--   'J<C-o>',
+--   opts('Join lines and restore cursor position')
+-- )
 
 -- half page down/up, but centers page
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts('Half page down and center'))
@@ -103,8 +111,6 @@ vim.keymap.set(
   '<cmd>!chmod -x %<CR>',
   opts('Make file NOT executable')
 )
-
-vim.keymap.set('n', '<leader>sP', ':!t<CR>', opts('Projects'))
 
 vim.keymap.set(
   'n',
