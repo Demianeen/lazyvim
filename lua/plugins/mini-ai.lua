@@ -9,6 +9,10 @@ return {
             a = '@parameter.outer',
             i = '@parameter.inner',
           }, {}),
+          C = ai.gen_spec.treesitter({
+            a = '@comment.outer',
+            i = '@comment.inner',
+          }),
         },
       }
     end,
@@ -17,14 +21,14 @@ return {
     'folke/which-key.nvim',
     opts = function(_, _)
       local wk = require('which-key')
+      local keyDesc = {
+        P = 'Parameter',
+        C = 'Comment',
+      }
       wk.register({
         mode = { 'o', 'x' },
-        a = {
-          P = 'Parameter',
-        },
-        i = {
-          P = 'Parameter',
-        },
+        a = keyDesc,
+        i = keyDesc,
       })
     end,
   },
