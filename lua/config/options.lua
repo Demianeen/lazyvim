@@ -7,10 +7,14 @@
 vim.opt.tabstop = 2 -- Number of spaces that a <Tab> in the file counts for
 vim.opt.smartindent = true -- Tries to guess and adds intend when start a new line
 vim.opt.autoindent = true -- Remembers indent from previous lines
+vim.opt.expandtab = false
 
 vim.opt.textwidth = 80 -- text width. Used for example for comments max length
+vim.opt.wrapmargin = 100
 
 vim.opt.undofile = true -- Sets persistent undo
+
+vim.opt.conceallevel = 1 -- conceal level in json/markdown files
 
 -- vim.opt.hlsearch = false -- no highlight during search
 

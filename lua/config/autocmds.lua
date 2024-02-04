@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.formatoptions:remove('r')
     vim.opt_local.formatoptions:remove('o')
     vim.opt_local.formatoptions:append('/')
+    vim.opt_local.formatoptions:append('t')
     vim.opt_local.formatoptions:append('1')
   end,
 })

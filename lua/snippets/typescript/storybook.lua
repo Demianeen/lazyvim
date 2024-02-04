@@ -7,13 +7,16 @@ local fmt = require('luasnip.extras.fmt').fmt
 local get_filename_without_ext =
   require('snippets.lib.get_filename_without_ext')
 
-local get_storybook_folder = ls.choice_node(2, {
-  ls.text_node('pages'),
-  ls.text_node('widgets'),
-  ls.text_node('features'),
-  ls.text_node('entities'),
-  ls.text_node('shared'),
-}) -- Choices for category
+local get_storybook_folder = function()
+  local path = vim.fn.expand('%:p') -- Get the full path of the current file
+  local folders = { 'pages', 'widgets', 'features', 'entities', 'shared' }
+
+  for _, folder in ipairs(folders) do
+    if string.match(path, '/' .. folder .. '/') then return folder end
+  end
+
+  return 'shared' -- or any default value you want
+end
 
 local storybookTemplate = ls.snippet(
   'sts',
@@ -28,16 +31,18 @@ local storybookTemplate = ls.snippet(
           argTypes: {{
             backgroundColor: {{ control: "color" }},
           }},
+          args: {{{}}}
         }} as Meta<typeof {fileName}>;
 
-        type Story = StoryObj<typeof Page>
+        type Story = StoryObj<typeof {fileName}>
 
         export const Primary: Story = {{{}}}
         ]],
     {
-      folder = get_storybook_folder,
+      folder = ls.function_node(get_storybook_folder),
       fileName = ls.function_node(get_filename_without_ext),
-      ls.insert_node(1), -- Placeholder for component name
+      ls.insert_node(1),
+      ls.insert_node(2),
     }
   )
 )

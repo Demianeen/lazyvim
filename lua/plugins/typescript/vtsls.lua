@@ -10,7 +10,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = function(_, opts)
-      opts.servers = {
+      vim.list_extend(opts.servers, {
         -- ---@type lspconfig.options.vtsls
         vtsls = {
           settings = {
@@ -68,7 +68,7 @@ return {
             },
           },
         },
-      }
+      })
     end,
     dependencies = {
       'yioneko/nvim-vtsls',
