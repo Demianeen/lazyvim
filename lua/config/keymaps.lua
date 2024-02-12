@@ -1,18 +1,4 @@
-local opts = function(desc, additional_opts)
-  local default_opts = {
-    desc = desc,
-    silent = true,
-    noremap = true,
-  }
-
-  if additional_opts then
-    for k, v in pairs(additional_opts) do
-      default_opts[k] = v
-    end
-  end
-
-  return default_opts
-end
+local opts = require('lib.opts')
 
 vim.g.mapleader = ' '
 
@@ -94,10 +80,6 @@ vim.keymap.set(
   opts('Select word for a search & replace')
 )
 
-vim.keymap.set('v', '<leader>rs', function()
-  -- (Your existing visual mode search & replace function)
-end, opts('Visual mode: Select for a search & replace'))
-
 -- makes file executable
 vim.keymap.set(
   'n',
@@ -118,3 +100,18 @@ vim.keymap.set(
   ":call setreg('+', expand('%'))<CR>",
   opts('Relative file path')
 )
+
+vim.keymap.set('v', '<leader>d', function()
+  -- Get the start and end of the visual selection
+  local start_line, _, end_line, _ = unpack(vim.fn.getpos("'<"), 2, 5)
+
+  -- Iterate through the selected lines
+  for i = start_line, end_line do
+    -- Generate the new line text with the line number prefix
+    local new_line_text = tostring(i - start_line + 1)
+      .. '. '
+      .. vim.fn.getline(i)
+    -- Replace the line with the new text
+    vim.fn.setline(i, new_line_text)
+  end
+end, opts('Number visual selection'))
