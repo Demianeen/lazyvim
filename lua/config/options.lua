@@ -14,7 +14,7 @@ vim.opt.wrapmargin = 100
 
 vim.opt.undofile = true -- Sets persistent undo
 
-vim.opt.conceallevel = 1 -- conceal level in json/markdown files
+vim.opt.conceallevel = 2 -- conceal level in json/markdown files
 
 -- vim.opt.hlsearch = false -- no highlight during search
 
