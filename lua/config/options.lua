@@ -26,4 +26,12 @@ vim.opt.report = 1000
 vim.opt.spell = true -- enables spelling
 vim.opt.spelloptions = 'camel'
 
+vim.filetype.add({
+  filename = {
+    ['.eslintrc.json'] = 'jsonc',
+    ['pre-commit'] = 'bash',
+    ['.lintstagedrc'] = 'json',
+  },
+})
+
 -- vim.opt.hint.paramType = true -- enables inline parameter hints
