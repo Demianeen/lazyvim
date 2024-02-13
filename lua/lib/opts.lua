@@ -1,4 +1,4 @@
-return function(desc, additional_opts)
+local function opts(desc, additional_opts)
   local default_opts = {
     desc = desc,
     silent = true,
@@ -13,3 +13,5 @@ return function(desc, additional_opts)
 
   return default_opts
 end
+
+return opts
