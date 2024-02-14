@@ -5,14 +5,14 @@ vim.g.mapleader = ' '
 -- redo
 vim.keymap.set('n', 'U', '<C-r>', opts('Redo'))
 
--- add tabs in visual mode
-vim.keymap.set('v', '<Tab>', '>gv', opts('Tab in visual mode: indent right'))
-vim.keymap.set(
-  'v',
-  '<S-Tab>',
-  '<gv',
-  opts('Shift-Tab in visual mode: indent left')
-)
+-- -- add tabs in visual mode
+-- vim.keymap.set('v', '<Tab>', '>gv', opts('Tab in visual mode: indent right'))
+-- vim.keymap.set(
+--   'v',
+--   '<S-Tab>',
+--   '<gv',
+--   opts('Shift-Tab in visual mode: indent left')
+-- )
 
 -- paste/delete and not copy
 vim.keymap.set(
@@ -30,9 +30,9 @@ vim.keymap.set(
 vim.keymap.set('n', 'x', '"_x', opts('Delete char without yanking'))
 vim.keymap.set('n', 'X', '"_x', opts('Delete char backwards without yanking'))
 
--- allows to move selected code up and down
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts('Move selection down'))
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts('Move selection up'))
+-- -- allows to move selected code up and down
+-- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts('Move selection down'))
+-- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts('Move selection up'))
 
 -- concats strings but leaves cursor in place
 -- vim.keymap.set(
