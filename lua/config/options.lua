@@ -29,10 +29,36 @@ vim.opt.spell = true -- enables spelling
 vim.opt.spelloptions = 'camel'
 
 vim.filetype.add({
+  --  extension = {
+  --   foo = 'fooscript',
+  --   bar = function(path, bufnr)
+  --     if some_condition() then
+  --       return 'barscript', function(bufnr)
+  --         -- Set a buffer variable
+  --         vim.b[bufnr].barscript_version = 2
+  --       end
+  --     end
+  --     return 'bar'
+  --   end,
+  -- },
   filename = {
     ['.eslintrc.json'] = 'jsonc',
-    ['pre-commit'] = 'bash',
     ['.lintstagedrc'] = 'json',
+  },
+  pattern = {
+    ['.*/.husky/.*'] = 'bash',
+    ['.*/.vscode/.*json'] = 'jsonc',
+    -- -- Using an optional priority
+    -- ['.*/etc/foo/.*%.conf'] = { 'dosini', { priority = 10 } },
+    -- -- A pattern containing an environment variable
+    -- ['${XDG_CONFIG_HOME}/foo/git'] = 'git',
+    -- ['README.(%a+)$'] = function(path, bufnr, ext)
+    --   if ext == 'md' then
+    --     return 'markdown'
+    --   elseif ext == 'rst' then
+    --     return 'rst'
+    --   end
+    -- end,
   },
 })
 
