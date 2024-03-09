@@ -124,24 +124,24 @@ return {
     -- autocmd
     local set_dial_group = function(lang)
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal(lang))
+      vim.api.nvim_buf_set_keymap(0, "n", "<C-a>", require("dial.map").inc_normal(lang), {})
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "v", "<C-a>", require("dial.map").inc_visual(lang))
+      vim.api.nvim_buf_set_keymap(0, "v", "<C-a>", require("dial.map").inc_visual(lang), {})
 
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal(lang))
+      vim.api.nvim_buf_set_keymap(0, "n", "<C-x>", require("dial.map").dec_normal(lang), {})
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "v", "<C-x>", require("dial.map").dec_visual(lang))
+      vim.api.nvim_buf_set_keymap(0, "v", "<C-x>", require("dial.map").dec_visual(lang), {})
 
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "n", "g<C-a>", require("dial.map").inc_gnormal(lang))
+      vim.api.nvim_buf_set_keymap(0, "n", "g<C-a>", require("dial.map").inc_gnormal(lang), {})
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "v", "g<C-a>", require("dial.map").inc_gvisual(lang))
+      vim.api.nvim_buf_set_keymap(0, "v", "g<C-a>", require("dial.map").inc_gvisual(lang), {})
 
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "n", "g<C-x>", require("dial.map").dec_gnormal(lang))
+      vim.api.nvim_buf_set_keymap(0, "n", "g<C-x>", require("dial.map").dec_gnormal(lang), {})
       -- stylua: ignore
-      vim.api.nvim_buf_set_keymap(0, "v", "g<C-x>", require("dial.map").dec_gvisual(lang))
+      vim.api.nvim_buf_set_keymap(0, "v", "g<C-x>", require("dial.map").dec_gvisual(lang), {})
     end
 
     local dial_augroup =
@@ -170,5 +170,6 @@ return {
         end,
       })
     end
+    set_dial_group(vim.bo.filetype)
   end,
 }
