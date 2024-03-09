@@ -26,8 +26,15 @@ return {
       },
     }
 
+    require('dap.ext.vscode').load_launchjs(nil, {
+      ['pwa-node'] = languages,
+      ['node'] = languages,
+      ['chrome'] = languages,
+      ['pwa-chrome'] = languages,
+    })
+
     for _, language in ipairs(languages) do
-      dap.configurations[language] = {
+      vim.list_extend(dap.configurations[language], {
         -- {
         --   type = 'pwa-node',
         --   request = 'launch',
@@ -97,14 +104,7 @@ return {
           webRoot = '${workspaceFolder}',
           userDataDir = '${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir',
         },
-      }
+      })
     end
-
-    require('dap.ext.vscode').load_launchjs(nil, {
-      ['pwa-node'] = languages,
-      ['node'] = languages,
-      ['chrome'] = languages,
-      ['pwa-chrome'] = languages,
-    })
   end,
 }
