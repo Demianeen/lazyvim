@@ -31,7 +31,7 @@ interface {} {{
 
 local importFrom = ls.snippet(
   'im',
-  fmt("import {} from '{}'", {
+  fmt("import {{{}}} from '{}'", {
     ls.insert_node(2), -- Placeholder for the module name
     ls.insert_node(1), -- Placeholder for the module path
   })
@@ -39,8 +39,15 @@ local importFrom = ls.snippet(
 
 local exportFrom = ls.snippet(
   'ex',
-  fmt("export {} from '{}'", {
+  fmt("export {{{}}} from '{}'", {
     ls.insert_node(2), -- Placeholder for the module name
+    ls.insert_node(1), -- Placeholder for the module path
+  })
+)
+
+local exportAll = ls.snippet(
+  'ea',
+  fmt("export * from '{}'", {
     ls.insert_node(1), -- Placeholder for the module path
   })
 )
@@ -114,6 +121,7 @@ ls.add_snippets('typescriptreact', {
   toggleFeatureFunction,
   importFrom,
   exportFrom,
+  exportAll,
   exportConst,
 })
 
@@ -125,5 +133,6 @@ ls.add_snippets('typescript', {
   toggleFeatureFunction,
   importFrom,
   exportFrom,
+  exportAll,
   exportConst,
 })

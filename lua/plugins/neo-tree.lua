@@ -3,6 +3,8 @@ return {
   opts = {
     event_handlers = {
       {
+        -- event = 'neo_tree_buffer_leave', -- then on each vtsls
+        -- reinitialization the neo tree is closed
         event = 'file_opened',
         handler = function(_)
           vim.cmd('Neotree close')
@@ -39,6 +41,51 @@ return {
                 vim.fs.basename(path)
               ),
             })
+          end,
+          ['c'] = {},
+          ['cf'] = {
+            'copy',
+            config = {
+              show_path = 'relative', -- "none", "relative", "absolute"
+            },
+          },
+          ['cp'] = function(state)
+            local current_file_path = state.tree:get_node().path
+            vim.fn.setreg('+', current_file_path)
+          end,
+          ['cn'] = function(state)
+            local current_file_name = state.tree:get_node().name
+            vim.fn.setreg('+', current_file_name)
+          end,
+          ['h'] = function(state)
+            local node = state.tree:get_node()
+            -- if node.type == 'directory' and node:is_expanded() then
+            --   require('neo-tree.sources.filesystem').toggle_directory(
+            --     state,
+            --     node
+            --   )
+            -- else
+            require('neo-tree.ui.renderer').focus_node(
+              state,
+              node:get_parent_id()
+            )
+            -- end
+          end,
+          ['l'] = function(state)
+            local node = state.tree:get_node()
+            if node.type == 'directory' then
+              if not node:is_expanded() then
+                require('neo-tree.sources.filesystem').toggle_directory(
+                  state,
+                  node
+                )
+              elseif node:has_children() then
+                require('neo-tree.ui.renderer').focus_node(
+                  state,
+                  node:get_child_ids()[1]
+                )
+              end
+            end
           end,
         },
       },

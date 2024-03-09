@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function()
     vim.opt_local.formatoptions:remove('r')
     vim.opt_local.formatoptions:remove('o')
-    vim.opt_local.formatoptions:append('/')
-    vim.opt_local.formatoptions:append('1')
   end,
 })
+
+vim.api.nvim_del_augroup_by_name('lazyvim_json_conceal')
