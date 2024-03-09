@@ -1,67 +1,70 @@
 return {
-  {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { { 'nvim-lua/plenary.nvim' } },
-    keys = {
-      {
-        '<leader>ha',
-        function()
-          require('harpoon'):list():append()
-        end,
-        desc = 'Add file to harpoon',
-      },
-      {
-        '<leader>he',
-        function()
-          require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
-        end,
-        desc = 'See all harpooned files',
-      },
-      {
-        '<leader>h1',
-        function()
-          require('harpoon'):list():select(1)
-        end,
-        desc = 'Open first harpooned file',
-      },
-      {
-        '<leader>h2',
-        function()
-          require('harpoon'):list():select(2)
-        end,
-        desc = 'Open second harpooned file',
-      },
-      {
-        '<leader>h3',
-        function()
-          require('harpoon'):list():select(3)
-        end,
-        desc = 'Open third harpooned file',
-      },
-      {
-        '<leader>h4',
-        function()
-          require('harpoon'):list():select(4)
-        end,
-        desc = 'Open fourth harpooned file',
-      },
+  'ThePrimeagen/harpoon',
+  branch = 'harpoon2',
+  keys = {
+    {
+      '<leader>H',
+      function()
+        require('harpoon'):list():append()
+      end,
+      desc = 'Harpoon file',
     },
-    config = function()
-      local harpoon = require('harpoon')
+    {
+      '<leader>h',
+      function()
+        local harpoon = require('harpoon')
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      desc = 'Harpoon quick menu',
+    },
+    {
+      '<leader>1',
+      function()
+        require('harpoon'):list():select(1)
+      end,
+      desc = 'Harpoon to file 1',
+    },
+    {
+      '<leader>2',
+      function()
+        require('harpoon'):list():select(2)
+      end,
+      desc = 'Harpoon to file 2',
+    },
+    {
+      '<leader>3',
+      function()
+        require('harpoon'):list():select(3)
+      end,
+      desc = 'Harpoon to file 3',
+    },
+    {
+      '<leader>4',
+      function()
+        require('harpoon'):list():select(4)
+      end,
+      desc = 'Harpoon to file 4',
+    },
+    {
+      '<leader>5',
+      function()
+        require('harpoon'):list():select(5)
+      end,
+      desc = 'Harpoon to file 5',
+    },
+  },
+  opts = {
+    settings = {
+      save_on_toggle = true,
+      key = function()
+        return 'global'
+      end,
+    },
+  },
+  config = function(_, opts)
+    local harpoon = require('harpoon')
+    vim.notify(vim.inspect(opts))
 
-      harpoon:setup({})
-    end,
-  },
-  {
-    'folke/which-key.nvim',
-    opts = function(_, _)
-      local wk = require('which-key')
-      wk.register({
-        h = {
-          name = 'harpoon',
-        },
-      }, { prefix = '<leader>' })
-    end,
-  },
+    harpoon:setup(opts)
+  end,
 }
