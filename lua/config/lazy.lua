@@ -30,9 +30,11 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.ui.alpha' },
     { import = 'lazyvim.plugins.extras.test.core' },
     { import = 'lazyvim.plugins.extras.dap.core' },
+    { import = 'lazyvim.plugins.extras.util.dot' },
     -- typescript
     { import = 'lazyvim.plugins.extras.linting.eslint' },
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
+    -- { import = 'lazyvim.plugins.extras.lang.vtsls' },
     -- json
     { import = 'lazyvim.plugins.extras.lang.json' },
     -- python
@@ -72,14 +74,14 @@ require('lazy').setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        'gzip',
+        -- 'gzip',
         -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
+        -- 'matchparen',
+        'netrwPlugin',
+        -- 'tarPlugin',
+        -- 'tohtml',
+        -- 'tutor',
+        -- 'zipPlugin',
       },
     },
   },
