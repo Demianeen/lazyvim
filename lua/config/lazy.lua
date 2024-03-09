@@ -1,3 +1,15 @@
+local LUAROCK_PATH =
+  '/opt/homebrew/Cellar/luarocks/3.9.2/share/lua/5.4/?.lua;/opt/homebrew/share/lua/5.4/?.lua;/opt/homebrew/share/lua/5.4/?/init.lua;/opt/homebrew/lib/lua/5.4/?.lua;/opt/homebrew/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/Users/demian/.luarocks/share/lua/5.4/?.lua;/Users/demian/.luarocks/share/lua/5.4/?/init.lua'
+local LUAROCK_CPATH =
+  '/opt/homebrew/lib/lua/5.4/?.so;/opt/homebrew/lib/lua/5.4/loadall.so;./?.so;/Users/demian/.luarocks/lib/lua/5.4/?.so'
+local LUAROCK_41_PATH =
+  '/opt/homebrew/Cellar/luarocks/3.9.2/share/lua/5.1/?.lua;/opt/homebrew/share/lua/5.1/?.lua;/opt/homebrew/share/lua/5.1/?/init.lua;/opt/homebrew/lib/lua/5.1/?.lua;/opt/homebrew/lib/lua/5.1/?/init.lua;./?.lua;./?/init.lua;/Users/demian/.luarocks/share/lua/5.1/?.lua;/Users/demian/.luarocks/share/lua/5.1/?/init.lua'
+local LUAROCK_41_CPATH =
+  '/opt/homebrew/lib/lua/5.1/?.so;/opt/homebrew/lib/lua/5.1/loadall.so;./?.so;/Users/demian/.luarocks/lib/lua/5.1/?.so'
+
+package.path = package.path .. ';' .. LUAROCK_PATH .. ';' .. LUAROCK_41_PATH
+package.cpath = package.cpath .. ';' .. LUAROCK_CPATH .. ';' .. LUAROCK_41_CPATH
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -18,14 +30,14 @@ require('lazy').setup({
     { import = 'lazyvim.plugins.extras.ui.alpha' },
     { import = 'lazyvim.plugins.extras.test.core' },
     { import = 'lazyvim.plugins.extras.dap.core' },
+    { import = 'lazyvim.plugins.extras.util.dot' },
     { import = 'lazyvim.plugins.extras.util.project' },
     -- typescript
     { import = 'lazyvim.plugins.extras.linting.eslint' },
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
+    -- { import = 'lazyvim.plugins.extras.lang.vtsls' },
     -- json
     { import = 'lazyvim.plugins.extras.lang.json' },
-    -- markdown
-    { import = 'lazyvim.plugins.extras.lang.markdown' },
     -- python
     { import = 'lazyvim.plugins.extras.lang.python' },
     { import = 'lazyvim.plugins.extras.formatting.black' },
@@ -38,11 +50,11 @@ require('lazy').setup({
 
     -- custom plugins location
     { import = 'plugins' },
-    { import = 'plugins.neotest' },
     { import = 'plugins.lsp' },
-    { import = 'plugins.dap' },
     -- languages
     { import = 'plugins.typescript' },
+    { import = 'plugins.markdown' },
+    { import = 'plugins.lua' },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -52,6 +64,10 @@ require('lazy').setup({
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
+    keys = {
+      silent = true,
+      noremap = true,
+    },
   },
   install = { colorscheme = { 'tokyonight', 'habamax' } },
   checker = { enabled = true, notify = false }, -- automatically check for plugin updates
@@ -59,14 +75,14 @@ require('lazy').setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        'gzip',
+        -- 'gzip',
         -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        'tarPlugin',
-        'tohtml',
-        'tutor',
-        'zipPlugin',
+        -- 'matchparen',
+        'netrwPlugin',
+        -- 'tarPlugin',
+        -- 'tohtml',
+        -- 'tutor',
+        -- 'zipPlugin',
       },
     },
   },

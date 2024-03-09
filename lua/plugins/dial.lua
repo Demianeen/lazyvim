@@ -66,8 +66,13 @@ return {
     })
 
     require('dial.config').augends:register_group({
+      default = {
+        augend.integer.alias.decimal, -- nonnegative decimal number (0, 1, 2, 3, ...)
+        augend.integer.alias.hex, -- nonnegative hex number  (0x01, 0x1a1f, etc.)
+        augend.date.alias['%Y/%m/%d'], -- date (2022/02/19, etc.)
+      },
       typescript = {
-        augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
+        augend.integer.alias.decimal, -- nonnegative and negative decimal number
         augend.constant.alias.bool, -- boolean value (true <-> false)
         logical_alias,
         augend.constant.new({ elements = { 'let', 'const' } }),
@@ -76,7 +81,7 @@ return {
         months,
       },
       css = {
-        augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
+        augend.integer.alias.decimal, -- nonnegative and negative decimal number
         augend.hexcolor.new({
           case = 'lower',
         }),
@@ -91,7 +96,7 @@ return {
         months,
       },
       json = {
-        augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
+        augend.integer.alias.decimal, -- nonnegative and negative decimal number
         augend.semver.alias.semver, -- versioning (v1.1.2)
       },
       lua = {
@@ -107,7 +112,7 @@ return {
         months,
       },
       python = {
-        augend.integer.alias.decimal_int, -- nonnegative and negative decimal number
+        augend.integer.alias.decimal, -- nonnegative and negative decimal number
         augend.constant.alias.bool, -- boolean value (true <-> false)
         logical_alias,
         ordinalNumbers,
