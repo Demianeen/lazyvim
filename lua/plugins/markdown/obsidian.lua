@@ -166,7 +166,7 @@ return {
         },
       },
       attachments = {
-        img_folder = '.assets',
+        img_folder = '_assets',
         -- A function that determines the text to insert in the note when pasting an image.
         -- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
         -- This is the default implementation.
