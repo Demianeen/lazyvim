@@ -5,14 +5,14 @@ vim.g.mapleader = ' '
 -- redo
 vim.keymap.set('n', 'U', '<C-r>', opts('Redo'))
 
--- -- add tabs in visual mode
--- vim.keymap.set('v', '<Tab>', '>gv', opts('Tab in visual mode: indent right'))
--- vim.keymap.set(
---   'v',
---   '<S-Tab>',
---   '<gv',
---   opts('Shift-Tab in visual mode: indent left')
--- )
+-- add tabs in visual mode
+vim.keymap.set('v', '<Tab>', '>gv', opts('Tab in visual mode: indent right'))
+vim.keymap.set(
+  'v',
+  '<S-Tab>',
+  '<gv',
+  opts('Shift-Tab in visual mode: indent left')
+)
 
 -- paste/delete and not copy
 vim.keymap.set(
