@@ -10,7 +10,7 @@ return {
       desc = 'Copy repo url',
     },
     {
-      '<leader>gB',
+      '<leader>gb',
       function()
         require('gitlinker').get_repo_url({
           action_callback = require('gitlinker.actions').open_in_browser,
