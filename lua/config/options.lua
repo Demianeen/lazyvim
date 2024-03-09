@@ -10,7 +10,9 @@ vim.opt.autoindent = true -- Remembers indent from previous lines
 vim.opt.expandtab = false
 
 -- vim.opt.textwidth = 80 -- text width. Used for example for comments max length
+vim.opt.wrap = true
 vim.opt.wrapmargin = 100
+vim.opt.linebreak = true -- line breaks only on special characters instead of any char
 
 vim.opt.undofile = true -- Sets persistent undo
 
