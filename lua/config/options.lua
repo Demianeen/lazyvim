@@ -9,7 +9,7 @@ vim.opt.smartindent = true -- Tries to guess and adds intend when start a new li
 vim.opt.autoindent = true -- Remembers indent from previous lines
 vim.opt.expandtab = false
 
-vim.opt.textwidth = 80 -- text width. Used for example for comments max length
+-- vim.opt.textwidth = 80 -- text width. Used for example for comments max length
 vim.opt.wrapmargin = 100
 
 vim.opt.undofile = true -- Sets persistent undo
